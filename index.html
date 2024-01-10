@@ -3,10 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario Estructurado</title>
-    <style></style>
+    <title>Formulario de contacto -HTML5, CSS3 y javascript </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+    <section class="form-contact">
+        <header>
+            <span>
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </span>
+        </header>
+
+        <form id="formulario" action="envioCorrecto.html" class="contact" method="get">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre">
+
+            <label for="correo">Correo Electrónico</label>
+            <input type="text" name="correo" id="correo">
+
+            <label for="telefono">Telefono</label>
+            <input type="text" name="telefono" id="telefono">
+
+            <label for="">Mensaje</label>
+            <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+            <input type="submit" id="enviar" value="Enviar">
+
+            <!--Mensaje de error-->
+            <ul id="errores"></ul>
+
+        </form>
+    </section>
     
 </body>
 </html>
