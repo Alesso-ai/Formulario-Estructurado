@@ -18,42 +18,24 @@ const validar = (e) => {
   //3 Validar los campos del formulario
   //true para que el flujo de la interpretacion entre el formulario
 
-  switch (true) {
-    //Nombre como campo obligatorio = a 0 significa que esta vacio
-    case nombre.value.trim().length == 0:
-      mensajeError = mensajeError.concat("El campo nombre es obligatorio");
-      break;
+  //Nombre como campo obligatorio = a 0 significa que esta vacio
+  nombre.value.trim().length == 0 &&
+    mensajeError.push("El campo nombre es obligatorio");
 
-    //Nombre con caracteres validos
-    case !/^[a-zA-Z0-9]*$/.exec(nombre.value.trim()):
-      mensajeError = mensajeError.concat(
-        "El campo nombre solo acepta caracteres validos"
-      );
-      break;
+  //Nombre con caracteres validos
+  !/^[a-zA-Z0-9]*$/.test(nombre.value.trim()) &&
+    mensajeError.push("El campo nombre solo acepta caracteres validos");
+  //Correo electronico valido
+  !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.exec(
+    correo.value.trim()
+  ) && mensajeError.push("El campo correo electronico no es valido");
 
-    //Correo electronico valido
-    case !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.exec(
-      correo.value.trim()
-    ):
-      mensajeError = mensajeError.concat(
-        "El campo correo electronico no es valido"
-      );
-      break;
-
-    //telefono
-    case !/^[a-zA-Z0-9]\d{8}$/.exec(telefono.value.trim()):
-      mensajeError = mensajeError.concat(
-        "El campo telefono solo acepta caracteres validos"
-      );
-      break;
-
-    //mensaje
-    case mensaje.value.trim().length < 10:
-      mensajeError = mensajeError.concat(
-        "El campo mensaje debe tener al menos 10 caracteres"
-      );
-      break;
-  }
+  //telefono
+  !/^[a-zA-Z0-9]\d{8}$/.test(telefono.value.trim()) &&
+    mensajeError.push("El campo telefono solo acepta caracteres validos");
+  //mensaje
+  mensaje.value.trim().length < 10 &&
+    mensajeError.push("El campo mensaje debe tener al menos 10 caracteres");
 
   //Enviar o mostrar mensaje
   if (
